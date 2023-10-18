@@ -7,8 +7,8 @@ void tinhtich(int a[50],int n);
 void dem(int a[50],int n);
 void nhapx(int a[50],int n);
 void sapxep(int a[50],int n);
-//void xoaphantu(int a[50],int n);
-void Count_Prime(int a[50],int  n);
+void xoaphantu(int a[50],int n);
+void Count_Prime(int a[50],int n);
 int Is_prime(int n);
 
 
@@ -25,7 +25,7 @@ int main()
  	nhapx(a,n);
  	sapxep(a,n);
    xuatmang(a,n);
-//   xoaphantu(a,n);
+   xoaphantu(a,n);
 	return 0;
 }
 	void nhapmang(int a[50],int n)
@@ -87,7 +87,7 @@ int Is_prime(int n)
 			return 0;
 		}
 	}
-	return 1;
+	return 1;    
 }
 
 void Count_Prime(int a[50],int n)
@@ -128,21 +128,23 @@ void Count_Prime(int a[50],int n)
      a[j]=tam;   
     }    
    } 	
-//    void xoaphantu(int a[50], int n)
-// {
-// 	int j,k;
-//  printf("nhap phan tu k=");
-//  scanf("%d",&k);
-//  for(int i=0;i<n;i++)
-//  if(a[i]==k)
-//  {
-//   for(j=i;j<n-1;j++)
-//   a[j]=a[j+1];
-//  }
-//   n--;
-//   i--;
- //}
+    void xoaphantu(int a[50], int n)
+ {
+ 	int j,k;
+  printf("nhap phan tu k=");
+  scanf("%d",&k);
+  for(int i=0;i<n;i++)
+  {
+	    if(a[i]==k)
+	  {
+	   for(j=i;j<n-1;j++)
+	   a[j]=a[j+1];
+	  }
+	   n--;
+	   i--;	
+  }
+ }
   
-  
+
 
  
