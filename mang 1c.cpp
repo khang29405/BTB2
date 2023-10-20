@@ -10,6 +10,7 @@ void sapxep(int a[50],int n);
 void xoaphantu(int a[50],int n);
 void Count_Prime(int a[50],int n);
 int Is_prime(int n);
+void chen(int a[50],int n);
 
 
 int main()
@@ -26,6 +27,7 @@ int main()
  	sapxep(a,n);
    xuatmang(a,n);
    xoaphantu(a,n);
+   chen(a,n);
 	return 0;
 }
 	void nhapmang(int a[50],int n)
@@ -131,7 +133,7 @@ void Count_Prime(int a[50],int n)
     void xoaphantu(int a[50], int n)
  {
  	int j,k;
-  printf("nhap phan tu k=");
+  printf("\n nhap phan tu k=");
   scanf("%d",&k);
   for(int i=0;i<n;i++)
   {
@@ -144,7 +146,23 @@ void Count_Prime(int a[50],int n)
 	   i--;	
   }
  }
+  void chen(int a[50],int n)
+  {
+  	int position, value,c;
+  	printf("nhap vi tri can chen");
+  	scanf("%d",&position);
+  	printf("nhap phan tu muon chen");
+  	scanf("%d",&value);
+  	for(int c=n-1;c>=position-1;c--)
+  	a[c+1]=a[c];
+  	a[position-1]=value;
+  	printf("\n mang sau khi chen");
+  	for(c=0;c<=n;c++)
+  	printf("%d\n",&a[c]);
+  }
+  	
   
+
 
 
  
