@@ -11,6 +11,26 @@ void chon2(char s[50]);
 int xoa(char s[50],int vitrixoa);
 int xoakt(char s[50]);
 int chuanhoa(char s[50]);
+void chon3();
+ struct SinhVien
+{
+ char Mssv[10];
+ char Hotensv[30];
+ char Phai[10];
+ float diemtoan;
+ float diemv;
+ float diemav;
+ char xeploai[20];
+ float kq;
+};
+typedef struct SinhVien SINHVIEN;
+void nhapsvN(SINHVIEN a[10],int n);
+void nhapsv(SINHVIEN &x);
+float kqht(SINHVIEN x);
+void xuatsv(SINHVIEN x);
+void xuatsvN(SINHVIEN a[10],int n);
+float kqht(SINHVIEN x);
+char *xeploai(SINHVIEN x);
 int main()
 {
 	char s[50],key;
@@ -43,6 +63,7 @@ int main()
 	      	 	break;
 	      	 case 3:	
 				fflush(stdin);
+				chon3();
 	      	 	printf("\n An phim bat ky de tiep tuc ");
 	      	 	getch();
 	      	 	break;
@@ -141,7 +162,79 @@ void chon1(int a[50][50])
   	 	s[i+1]=s[i+1]-32;
   	 }
   }  
-  
+void chon3()
+{
+	SINHVIEN x,a[10];
+	int n;
+	printf("Nhap so luong sinh vien:");
+	scanf("%d",&n);
+	nhapsvN(a,n);
+	xuatsvN(a,n);
+}
+void nhapsvN(SINHVIEN a[10],int n)
+{
+	for(int i=0;i<n;i++)
+	{
+	  printf("Nhap sinh vien thu %d:",i+1);
+	  nhapsv(a[i]);
+    }
+}
+void nhapsv(SINHVIEN &x)
+{
+	fflush(stdin);
+	printf("\nNhap ma sinh vien:");
+	gets(x.Mssv);
+	fflush(stdin);
+	printf("\nNhap ho ten sinh vien:");
+	gets(x.Hotensv);
+	fflush(stdin);
+	printf("\nNhap phai:");
+	gets(x.Phai);
+	fflush(stdin);
+	printf("\nNhap diem toan:");
+	scanf("%f",&x.diemtoan);
+	fflush(stdin);
+	printf("\nNhap diem van:");
+	scanf("%f",&x.diemv);
+	fflush(stdin);
+	printf("\nNhap diem anh van:");
+	scanf("%f",&x.diemav);			
+}
+void xuatsv(SINHVIEN x)
+{
+	printf("\nHo ten:%s",x.Hotensv);
+	printf("\nNam sinh:%s",x.Mssv);
+	printf("\nPhai:%s",x.Phai);
+	printf("\n Diem toan:%.2f",x.diemtoan);
+	printf("\n Diem ngu van: %.2f",x.diemv);
+	printf("\n Diem anh van: %.2f",x.diemav);
+	printf("\n Diem trung binh: %.2f",kqht(x));
+	printf("\n Xep loai: %s",xeploai(x));
+}	
+void xuatsvN(SINHVIEN a[10],int n)
+{
+	for(int i=0;i<n;i++)
+	  xuatsv(a[i]);	
+}
+float kqht(SINHVIEN x)
+{
+	x.kq=(x.diemtoan*2+x.diemv*2+x.diemav)/5;	
+	return x.kq;
+}
+char *xeploai(SINHVIEN x)
+{
+	float tb=kqht(x);
+	if(tb>=0 && tb<1.5 )
+	return "Yeu";
+	else if(tb>=1.5 && tb<2.5)
+	return "Trung Binh";
+	else if(tb>=2.5 && tb<3.5)
+	return "Kha";
+	else if(tb>=3.5 && tb<3.7)
+	return "Gioi";
+	else 
+	return "Xuat Sac"; 	
+}
   
  	   
 	    
